@@ -1,0 +1,3 @@
+export type WorkOrder = { id: string; address: string; photos: string[]; dispatch_status: "scheduled" | "en_route" | "complete"; technician_follow_up: string | null };
+export function buildDigest(orders: WorkOrder[]): string { const open = orders.filter((order) => order.dispatch_status !== "complete"); const followUps = open.filter((order) => order.technician_follow_up !== null); return [`Field service digest: ${orders.length} work orders, ${open.length} still open.`, `Photos attached: ${orders.reduce((count, order) => count + order.photos.length, 0)}.`, `Technician follow-ups: ${followUps.length}.`, ...followUps.map((order) => `${order.id} at ${order.address}: ${order.technician_follow_up}`)].join("\n"); }
+
