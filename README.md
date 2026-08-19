@@ -1,6 +1,6 @@
 # A Monday field-service digest for the dispatch desk
 
-I build storefronts, so I think of a weekly digest like a checkout handoff: the next person needs a compact, trustworthy state rather than a pile of raw events. This TypeScript example turns work-order photos, dispatch status, and technician follow-up into one digest, schedules the task for Monday morning, and publishes the resulting text.
+I build storefronts, so I treat a weekly digest like a checkout handoff. The next person wants a compact, trustworthy state, not a pile of raw events. This TypeScript example builds one digest from work-order photos, dispatch status, and technician follow-up, schedules it for Monday morning, and publishes the text.
 
 Infrai keeps the example to one key and one small HTTP interface. The code uses `cron.create` for the schedule and `queue.publish` for the digest payload; the API envelope is checked before either result is used.
 
